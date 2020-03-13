@@ -1,6 +1,29 @@
+.section
+  background: $light, url('../img/decorate-line2.svg')
+.subtitle
+  &__text
+    font-family: 'Futura Book'
+    font-size: 1.428rem
+    line-height: 27px
+    max-width: 760px
+    margin: 24px auto
+    margin-bottom: 39px
+    color: $dist
+    text-align: center
 .types
   &__section-title
     margin-bottom: 2rem
+  &__image
+    position: relative
+    display: block
+    &::before
+      content: ''
+      position: absolute
+      background: rgba(0, 0, 0, 0.3)
+      width: 99%
+      height: 99.5%
+      z-index: 0
+    
 .row
   display: flex
   align-items: flex-start
