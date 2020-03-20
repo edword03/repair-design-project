@@ -1,0 +1,52 @@
+.projects
+  padding-bottom: 30rem
+.desing-project
+  padding-bottom: 30rem
+.swiper
+  &-slide
+    display: flex
+    flex-wrap: wrap
+    &__text
+      flex-basis: 50%
+      margin-bottom: 2.42rem
+      padding-bottom: 2rem
+    &__heading
+      font-size: 1.285rem
+      color: $primary
+      text-transform: uppercase
+      line-height: 1.78rem
+      font-family: 'Yeseva One'
+      margin-bottom: 0.64rem
+    &__value
+      line-height: 1.78rem
+  &-pagination
+    &-bullets
+      width: auto
+    &-bullet
+      background-color: rgba($light,0.3 )
+      &-active
+        background-color: $light
+  &-button
+    &-prev
+      left: 0
+      bottom: 0
+      top: auto
+      background: url('../img/arrow-left.svg') no-repeat center
+      background-size: 42px
+      width: 42px
+      height: 14px
+      &::after
+        display: none
+    &-next
+      bottom: 0
+      top: auto
+      background: url('../img/arrow-right.svg') no-repeat center
+      background-size: 42px
+      width: 42px
+      height: 14px
+      &::after
+        display: none
+      
+.swiper-container-horizontal>.swiper-pagination-bullets
+  width: auto
+  bottom: -2px
