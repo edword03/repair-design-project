@@ -1,7 +1,10 @@
 *,*:before, *:after
   box-sizing: border-box
+*, *:focus, *:hover, *:active 
+  outline: none
 html
   font-size: 14px 
+  scroll-behavior: smooth
 body 
   font-family: 'Futura Book', sans-serif
   font-size: 1rem
@@ -22,8 +25,12 @@ img
       font-family: 'Yeseva One', cursive
       text-transform: uppercase
       line-height: 138.6%
+      font-size: 1.32rem
+      font-weight: normal
       &--primary
         color: $primary
+        font-size: 1.9rem
+        line-height: 2.3rem
     &__word
       display: flex
       align-items: center
@@ -34,7 +41,8 @@ img
         background-color: $primary
         margin-left: 2rem
     &__text
-      font-size: 1.28rem
+      font-size: 1.08rem
+      font-weight: normal
       line-height: 2.07rem
       max-width: 31.57rem
     &__image
@@ -50,3 +58,5 @@ img
   &__video
     // padding-bottom: 300px
     // background-size: cover
+iframe
+  width: 100%

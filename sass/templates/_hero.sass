@@ -30,18 +30,28 @@
     max-width: 47.85rem
     min-width: 165px
     position: relative
+    margin-top: 2.4rem
     margin-left: 4.28rem
+    margin-bottom: 14.85rem
   &__title
-    max-width: 48.28rem
+    max-width: 44.68rem
   &__text
-    font-size: 1.57rem
+    margin: 0
+    margin-top: 1rem
+    margin-bottom: 2.7rem
+    font-size: 1.35rem
+    font-weight: normal
+    line-height: 2.142rem
     max-width: 500px
     font-family: 'Futura Book'
   &__button
-    margin-right: 20px
-    font-size: 13px;
-    line-height: 15px;
+    margin-right: 15px
+    line-height: 15px
     font-weight: 500
+    padding: 1.1rem 1.7rem
+    font-size: 11.1px
+    &--outline
+      padding: 1.05rem 2.7rem
   &__instagram
       position: absolute
       left: 0
@@ -56,8 +66,9 @@
     align-items: center
     left: 0
     bottom: 0
-    min-width: 17.6rem
+    min-width: 16.3rem
     min-height: 6.92rem
+    font-size: 0.76rem
     background-color: $dark
     text-transform: uppercase
     text-decoration: none
@@ -66,11 +77,14 @@
     &::after
       content: ''
       background: url('../img/arrow-down.svg') no-repeat center
-      height: 30px
-      width: 30px
-      border: 2px solid $primary
+      height: 26px
+      width: 26px
+      border: 1px solid $primary
       border-radius: 50%
-      margin-left: 12px
+      margin-left: 17.5px
+    &:hover
+      color: $primary
+      text-decoration: underline
 .instagram
     background-color: $dark
     display: flex
@@ -82,6 +96,7 @@
         line-height: 0.8
         text-transform: uppercase
         font-family: 'Futura Demi'
+        font-size: 0.85rem
         color: $primary
         text-decoration: none
         transform: rotate(90deg)
@@ -91,13 +106,15 @@
           height: 1px
           background-color: $primary
           margin-left: 8px
+        &:hover
+          text-decoration: underline
           
 .title
     margin: 0
     font-family: 'Yeseva One', cursive
     text-transform: uppercase
-    font-size: 2.857rem
-    line-height: 53px
+    font-size: 2.657rem
+    line-height: 47.6px
     font-weight: 400
     &--primary
       color: $primary

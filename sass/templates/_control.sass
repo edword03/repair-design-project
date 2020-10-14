@@ -3,6 +3,8 @@
   &__input
     border-bottom: 1px solid rgba($dark, 0.15)
     color: $dark
+    &::placeholder
+      color: $dark
   &__section-title
     margin-bottom: 2rem
     margin-top: -30rem
@@ -26,8 +28,8 @@
     margin: auto
     margin-bottom: 4.285rem
     text-align: center
-    font-size: 1.428rem
-    line-height: 2.142rem
+    font-size: 1.228rem
+    line-height: 2.242rem
     color: $dark
     &::before
       display: block
@@ -45,17 +47,21 @@
     flex-wrap: wrap
     justify-content: space-between
   &__policy
+    position: relative
     order: 5
     flex-basis: 100%
     margin-top: 1.2rem
     &-label
       justify-content: center
   &__input-group
+    position: relative
     display: flex
     flex-direction: column
     flex-basis: 30%
   &__label
     margin-bottom: -7px
+    color: $secondary
+    font-size: 0.91rem
   &__button
     padding: 1.2857rem 4.7857rem 
 .video
@@ -63,3 +69,6 @@
     position: relative
     margin: auto
     box-shadow: 0px 5px 30px rgba(227, 184, 115, 0.2) no-repeat center
+    cursor: pointer
+    &:hover
+      box-shadow: none

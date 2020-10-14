@@ -1,14 +1,25 @@
 .header
   background-color: $dark
-  padding: 24px 0
+  padding: 20px 0
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 199
 .menu 
   display: flex
   justify-content: space-between
   align-items: center
+  &__logo
+    font-size: 0.79rem
+    font-weight: bold
 .logo
   color: $primary
   text-transform: uppercase
-  font-weight: 500
+  font-weight: 700
+  font-size: 0.79rem
+  &__link
+    text-decoration: none
 .nav
   &__item
     text-decoration: none
@@ -16,14 +27,18 @@
     text-transform: uppercase
     margin-right: 2.85rem
     font-weight: normal
+    font-size: 0.79rem
     &:hover
       color: $primary
       transition: color 0.3s
 .phone
   color: $primary
-  font-weight: 500
+  font-weight: 5gulp serve00
   font-family: 'Futura Demi'
 .contacts
   &__phone
-    margin-right: 45px
+    margin-right: 2.7rem
+  &__button
+    font-size: 0.81rem
+    padding: 0.8rem 1.5rem
   

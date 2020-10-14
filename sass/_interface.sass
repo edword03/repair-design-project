@@ -17,9 +17,28 @@
     &:hover
       box-shadow: none
   &--outline
+    padding: 1.1rem 1.7rem
     border: 1px solid $light
     background-color: transparent
     color: $light
+  &-up
+    display:none
+    right: 0
+    margin: 0
+    position: fixed
+    bottom: 0
+    padding: 10px
+    border: 1px solid $primary
+    border-radius: 5px
+    outline:none
+    background-color: $dark
+    color: $primary
+    font-size: 17px
+    font-family: "Yeseva One"
+    text-transform: uppercase
+    border: none
+    cursor: pointer
+    font-weight: bold
 .label
   &--light
     color: rgba($light, 0.5)
@@ -38,7 +57,7 @@
   &__checkbox
     opacity: 0
     visibility: hidden
-    &:checked +
+    &:checked ~
       .policy__label
         &::before
           background: $primary url('../img/check.svg') no-repeat center / 0.8rem
@@ -56,4 +75,11 @@
       margin-right: 0.54rem
     &--center
       justify-content: center
-    
+.card
+  &__price-tag
+    cursor: pointer
+    box-shadow: 0px 5px 15px rgba($primary ,0.2 )
+    transition: text-decoration box-shadow 0.3s
+    &:hover
+      text-decoration: underline
+      box-shadow: none

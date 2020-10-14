@@ -15,7 +15,6 @@
 });
 */
 
-
 $(document).ready(function () {
   var modal = $('.modal'),
       modalBtn = $('[data-toggle="modal"]'),
@@ -26,6 +25,24 @@ $(document).ready(function () {
   });
   closeBtn.on('click', function(){
     modal.toggleClass('modal--visible');
+  });
+
+
+  $(window).scroll(function () {
+    // Если отступ сверху больше 50px то показываем кнопку "Наверх"
+    if ($(this).scrollTop() > 450) {
+        $('.button-up').fadeIn();
+    } else {
+        $('.button-up').fadeOut();
+    }
+  });
+
+  /** При нажатии на кнопку мы перемещаемся к началу страницы */
+  $('.button-up').click(function () {
+    $('body,html').animate({
+        scrollTop: 0
+    }, 500);
+    return false;
   });
 
   var mySwiper = new Swiper ('.swiper-container', {
@@ -46,8 +63,8 @@ $(document).ready(function () {
   var prev = $('.swiper-button-prev');
   var bullets = $('.swiper-pagination');
 
-  next.css('left', prev.width() + 10 + bullets.width() +10 )
-  bullets.css('left', prev.width() + 10)
+  next.css('left', prev.width() + 20 + bullets.width() +20 )
+  bullets.css('left', prev.width() + 15)
 
 
   new WOW().init();
@@ -61,7 +78,8 @@ $('.modal__form').validate({
     // simple rule, converted to {required:true}
     userName: {
       required: true,
-      minlength: 2
+      minlength: 2,
+      maxlength: 15
     },
     userPhone: {
       required: true,
@@ -71,74 +89,158 @@ $('.modal__form').validate({
     userEmail: {
       required: true,
       email: true
+    },
+    policyСheckbox: {
+      required: true
     }
   }, // сообщение 
   messages: {
     userName: {
       required: "Имя обязательно к заполнению",
-      minlength: "Имя должно быть не короче двух букв"
+      minlength: "Имя должно быть не короче двух букв",
+      maxlength: "Максимальное количевство символов 15"
     },
     userPhone: "Телефон обязателен",
     userEmail: {
       required: "Обязательно укажите email",
-      email: "Введите в формате name@domain.com"
-    }
+      email: "Введите в формате name@domain.com",
+    },
+    policyСheckbox: "Подтвердите свое согласие!"
+  },
+  submitHandler: function(form) {
+    $.ajax({
+      type: "POST",
+      url: "send.php",
+      data: $(form).serialize(),
+      success: function (response) {
+        $('.overlay').fadeIn();
+        $(form)[0].reset();
+        modal.removeClass('modal--visible');
+      }
+    });
+    $('.overlay__close').click(function() {
+      $('.overlay').fadeOut();
+    });
   }
-
 });
 
 //Валидация формы подвала
 $('.footer__form').validate({
-  errorClass: "invalid",
+  errorElement: "em",
+  errorClass: "error-form",
   rules: {
     // simple rule, converted to {required:true}
     userName: {
       required: true,
-      minlength: 2
+      minlength: 2,
+      maxlength: 15
     },
     userPhone: {
       required: true,
       minlength: 17
     },
     userQuestion: "required",
+    policyСheckbox: {
+      required: true
+    },
+    policyСheckbox: {
+      required: true
+    }
   }, // сообщение 
   messages: {
     userName: {
       required: "Имя обязательно к заполнению",
-      minlength: "Имя должно быть не короче двух букв"
+      minlength: "Имя должно быть не короче двух букв",
+      maxlength: "Максимальное количевство символов 15"
     },
     userPhone: "Телефон обязателен",
-    userQuestion: "Заполните пожалуйста поле"
+    userQuestion: "Заполните пожалуйста поле",
+    policyСheckbox: "Подтвердите свое согласие!"
+  },
+  submitHandler: function(form) {
+    $.ajax({
+      type: "POST",
+      url: "send.php",
+      data: $(form).serialize(),
+      success: function (response) {
+        $('.overlay').fadeIn();
+        $(form)[0].reset();
+        modal.removeClass('modal--visible');
+      }
+    });
+    $('.overlay__close').click(function() {
+      $('.overlay').fadeOut();
+    });
   }
-
 });
 
 //Валидация формы в control__form
 $('.control__form').validate({
-  errorClass: "invalid",
+  errorElement: "em",
+  errorClass: "error-form",
   rules: {
     // simple rule, converted to {required:true}
     userName: {
       required: true,
-      minlength: 2
+      minlength: 2,
+      maxlength: 15
     },
     userPhone: {
       required: true,
       minlength: 17
     },
+    policyСheckbox: {
+      required: true
+    }
   }, // сообщение 
   messages: {
     userName: {
       required: "Имя обязательно к заполнению",
-      minlength: "Имя должно быть не короче двух букв"
+      minlength: "Имя должно быть не короче двух букв",
+      maxlength: "Максимальное количевство символов 15"
+    },
+    policyСheckbox: {
+      required: true
     },
     userPhone: "Телефон обязателен",
+    policyСheckbox: "Подтвердите свое согласие!"
+  },
+  submitHandler: function(form) {
+    $.ajax({
+      type: "POST",
+      url: "send.php",
+      data: $(form).serialize(),
+      success: function (response) {
+        $('.overlay').fadeIn();
+        $(form)[0].reset();
+        modal.removeClass('modal--visible');
+      }
+    });
+    $('.overlay__close').click(function() {
+      $('.overlay').fadeOut();
+    });
   }
 
 });
 
   //маска для телефона
-  $('[type=tel]').mask('+7(000) 000-00-00', {placeholder: "+7 (___) ___-__-__"});
+  $('[type=tel]').mask('+7(000) 000-00-00');
 
+  var player;
+
+  $('.video__play').on('click', function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '460',
+        width: '100%',
+        videoId: 'GBBltSRTFFg',
+        events: {
+          'onReady': videoPlay,
+        }
+      });
+    })
+  
+    function videoPlay(event) {
+      event.target.playVideo();
+    }
 
 });

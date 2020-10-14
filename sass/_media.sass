@@ -4,7 +4,8 @@
       &__item
         margin-right: 1rem
 @media screen and ( max-width: 1345px )
-  
+  .bid
+    display: none
   .nav
     &__item
       margin-right: 2rem
@@ -46,8 +47,27 @@
     &__title
       max-width: 47.28rem
 
-  
-@media screen and ( max-width: 1024px )
+@media screen and ( max-width: 991px )
+  .button
+    &:hover
+      cursor: default
+    &--primary
+      box-shadow: 0px 5px 15px rgba($primary ,0.2 )
+      &:hover
+        box-shadow: 0px 5px 15px rgba($primary ,0.2 )
+  .card
+    &__price-tag
+      &:hover
+        cursor: default
+        text-decoration: none
+        box-shadow: 0px 5px 15px rgba($primary ,0.2 )
+  .nav
+    &__item
+      &:hover
+        color: $light
+  .button-up
+    visibility: hidden
+@media screen and ( max-width: 990px )
   .header
     &__container
       max-width: 1270px
@@ -62,6 +82,8 @@
   .card__price-tag
     font-size: 1rem
 @media screen and ( max-width: 760px )
+  .our-clients
+    display: none
   .control
     background-color: $dark
     color: $light
@@ -93,6 +115,9 @@
   .row
     flex-direction: column
     align-items: center
+  .modal
+    &__dialog
+      overflow-y: auto
   .types
     &__card
       margin-bottom: 4.29rem
@@ -172,6 +197,8 @@
     &__button
       display: block
       width: 100%
+    &__phone
+      display: block
 @media screen and ( max-height: 520px )
   .hero
     &__scroll-down
